@@ -5,12 +5,15 @@
         <li v-for='item in menuList'>{{ item.text }}</li>
       </ul>
       <div>
-        <img :src="myPhoto" class='my-photo'>
-        <div class="pop">
-          <div class="pop-img" v-for='item in contact'>
-            <a :href="item.url">
-              <img :src="item.src" :alt="item.url">
-            </a>
+        <img :src="myPhoto" class='my-photo' @click='changePop'>
+        <div class="pop" v-if='show'>
+          <div class="pop-img" v-for='(item, index) in contact' @mouseenter.stop.prevent="showPop(index)" @mouseleave.stop.prevent='hidePop(index)'>
+            <div class='pop-div' >
+              <a :href="item.url">
+                <img :src="item.src" :alt="item.url" class='pop-div-img'>
+              </a>
+              <pop v-if='item.show && item.img'><img :src="item.img" class='pop-if-img'></pop>
+            </div>           
           </div>
         </div>
       </div>
@@ -20,36 +23,49 @@
 </template>
 
 <script>
+  import pop from "components/pop";
+
   export default {
+    components: {
+      pop
+    },
     data(){
       return {
+        show: false,
         github: require('assets/svg/github.svg'),
         myPhoto: require('assets/img/portrait.jpg'),
         contact: [
           {
             alt: 'github',
             src: require('assets/svg/github.svg'),
-            url: "https://github.com/HoldSworder"
+            url: "https://github.com/HoldSworder",
+            show: false
           },
           {
             alt: '邮箱',
             src: require('assets/svg/邮箱.svg'),
-            url: 'javascript;'
+            url: 'javascript;',
+            show: false
           },
           {
             alt: 'QQ',
             src: require('assets/svg/qq.svg'),
-            url: 'javascript;'
+            url: 'javascript;',
+            img: require('assets/img/qq.png'),
+            show: false
           },
           {
             alt: '微信',
             src: require('assets/svg/微信.svg'),
-            url: 'javascript;'
+            url: 'javascript;',
+            img: require('assets/img/wx.png'),
+            show: false
           },
           {
             alt: '微博',
             src: require('assets/svg/微博.svg'),
-            url: 'http://www.weibo.com/5490397983/profile?topnav=1&wvr=6'
+            url: 'http://www.weibo.com/5490397983/profile?topnav=1&wvr=6',
+            show: false
           },
         ],
         menuList: [
@@ -70,6 +86,18 @@
             url: ''
           }
         ]
+      }
+    },
+    methods: {
+      showPop(index) {
+        this.contact[index].show = true
+      },
+      hidePop(index) {
+        this.contact[index].show = false
+      },
+      changePop() {
+        console.log('sdf')
+        this.show = !this.show
       }
     }
   }
@@ -104,15 +132,20 @@
     background-image url(../assets/img/background.jpg)
     height 100vh
 
-  .pop-img img 
+  .pop-div-img
     width 30px
     height 30px
     margin 5px 10px
+    // position relative
 
   .pop
     position absolute
     background-color black
     margin-top 10px
-    
 
+  .pop-div
+    position relative
+
+  .pop-if-img
+    height 250px
 </style>
