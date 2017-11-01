@@ -1,25 +1,28 @@
 <template>
   <div>
-    <img src='../assets/svg/音乐.svg' class='music-look music' @click='changeMusic' id='music-img'></img>
+    <img :src="imgSrc" class='music-look music' @click='changeMusic' id='music-img'></img>
     <audio loop='loop' autoplay='autoplay' id='audio'>
       <source v-for='item in audioSrc' :src='item'></source>
     </audio>
+    {{ imgSrc }}
   </div>
 </template>
 
 <script>
   export default {
-    
+    props: [
+      'imgSrc',
+      'audioSrc'
+    ],
     data() {
       return {
-
+        
       }
     },
     methods: {
       changeMusic() {
         let audio = document.querySelector('#audio')
         let img = document.querySelector('#music-img')
-        console.log(this.imgSrc)
 
         if (this.music) {
           audio.pause()

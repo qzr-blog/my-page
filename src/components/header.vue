@@ -16,7 +16,7 @@
                 <pop v-show='item.show && item.img'><img :src="item.img" class='pop-if-img'></pop>
               </div>           
             </div>
-            <music imgSrc='imgSrc'></music>
+            <music imgSrc='imgSrc' audioSrc='audioSrc'></music>
           </div>
         </el-collapse-transition>    
       </div>
@@ -37,7 +37,8 @@
     },
     data(){
       return {
-        imgSrc: '../assets/svg/音乐.svg',
+        imgSrc: require('assets/svg/音乐.svg'),
+        audioSrc: ['assets/audio/消愁.mp3'],
         music: true,
         show: false,
         github: require('assets/svg/github.svg'),
