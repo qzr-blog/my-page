@@ -1,6 +1,6 @@
 <template>
   <div class='container'>
-    <slot></slot>
+    <slot class='music-look music' @click='changeMusic' id='music-img'></slot>
   </div>
 </template>
 
