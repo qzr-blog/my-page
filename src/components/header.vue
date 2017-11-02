@@ -4,22 +4,9 @@
       <ul class='menu'>
         <li v-for='item in menuList'>{{ item.text }}</li>
       </ul>
-      <div>
-        <img :src="myPhoto" class='my-photo hvr-bounce-in' @click='changePop'>
-        <el-collapse-transition>    
-          <div class="pop" v-show='show'>
-            <div class="pop-img" v-for='(item, index) in contact' @mouseenter.stop.prevent="showPop(index)" @mouseleave.stop.prevent='hidePop(index)'>
-              <div class='pop-div' >
-                <a :href="item.url">
-                  <img :src="item.src" :alt="item.url" class='pop-div-img hvr-bounce-in ' >
-                </a>
-                <pop v-show='item.show && item.img'><img :src="item.img" class='pop-if-img'></pop>
-              </div>           
-            </div>
-            <music imgSrc='imgSrc' audioSrc='audioSrc'></music>
-          </div>
-        </el-collapse-transition>    
-      </div>
+      <pop :contact='contact' :myPhoto='myPhoto'>
+        <music :imgSrc='imgSrc' :audioSrc='audioSrc' :music='false'></music>
+      </pop>
     </div>
     <p>这是我的个人简介</p>
   </div>
@@ -37,11 +24,12 @@
     },
     data(){
       return {
+
         imgSrc: require('assets/svg/音乐.svg'),
-        audioSrc: ['assets/audio/消愁.mp3'],
-        music: true,
-        show: false,
-        github: require('assets/svg/github.svg'),
+        audioSrc: [
+          require('assets/audio/消愁.mp3'),
+          require('assets/audio/像我这样的人.mp3')
+        ],
         myPhoto: require('assets/img/portrait.jpg'),
         contact: [
           {
@@ -100,27 +88,14 @@
       }
     },
     methods: {
-      showPop(index) {
-        this.contact[index].show = true
-      },
-      hidePop(index) {
-        this.contact[index].show = false
-      },
-      changePop() {
-        this.show = !this.show
-      }
+
     }
   }
 </script>
 
 <style lang="stylus">
   
-  .my-photo
-    width 50px
-    height 50px
-    border-radius 50px
-    overflow hidden
-    display inline-block
+
 
   .menu li
     display inline-block
@@ -143,39 +118,6 @@
     background-image url(../assets/img/background.jpg)
     height 100vh
 
-  .pop-div-img
-    width 30px
-    height 30px
-    margin 5px 10px
-    // position relative
 
-  .pop
-    position absolute
-    margin-top 10px
-
-  .pop-div
-    position relative
-
-  .pop-if-img
-    height 250px
-
-
-
-  //弹跳效果
-  .hvr-bounce-in 
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px transparent;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-  
-  .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active 
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  
 
 </style>

@@ -1,17 +1,99 @@
 <template>
-  <div class='container'>
-    <slot class='music-look music' @click='changeMusic' id='music-img'></slot>
+  <div>
+    <div>
+      <img :src="myPhoto" class='my-photo hvr-bounce-in' @click='changePop'>
+      <el-collapse-transition>    
+        <div class="pop container" v-show='show'>
+          <div class="pop-img" v-for='(item, index) in contact' @mouseenter="showPop(index)" @mouseleave='hidePop(index)'>
+            <div class='pop-div' >
+              <a :href="item.url">
+                <img :src="item.src" :alt="item.url" class='pop-div-img hvr-bounce-in ' >
+                <img :src="item.img" class='pop-if-img' v-if='item.show && item.img'>
+              </a>
+              
+              <!-- <div class='music-look music' @click='changeMusic' id='music-img'>
+                <img :src="item.img" class='pop-if-img' v-show='item.show && item.img'>
+              </div> -->
+            </div>           
+          </div>
+          <slot></slot>
+        </div>
+      </el-collapse-transition>    
+    </div>
   </div>
 </template>
 
 <script>
-  
+  export default {
+    props: [
+      'contact',
+      'myPhoto'
+    ],
+    data() {
+      return {
+        show: false,
+      }
+    },
+    methods: {
+      showPop(index) {
+        this.contact[index].show = true
+      },
+      hidePop(index) {
+        this.contact[index].show = false
+      },
+      changePop() {
+        this.show = !this.show
+      }
+    }
+  }
 </script>
 
 <style lang="stylus">
   .container
     position absolute
-    right 50px
-    top -100px
+
+  .my-photo
+    width 50px
+    height 50px
+    border-radius 50px
+    overflow hidden
     display inline-block
+
+  .pop-div-img
+    width 30px
+    height 30px
+    margin 5px 10px
+    // position relative
+
+  .pop
+    position absolute
+    margin-top 10px
+
+  .pop-div
+    position relative
+
+  .pop-if-img
+    height 250px
+    position absolute
+    right 5rem
+    bottom -5rem
+
+
+
+  //弹跳效果
+  .hvr-bounce-in 
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  
+  .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active 
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  
 </style>

@@ -1,10 +1,8 @@
 <template>
   <div>
-    <img :src="imgSrc" class='music-look music' @click='changeMusic' id='music-img'></img>
-    <audio loop='loop' autoplay='autoplay' id='audio'>
-      <source v-for='item in audioSrc' :src='item'></source>
+    <img :src="imgSrc" class='music-look' @click='changeMusic' :class='{ musicActive: !music }' id='music-img'></img>
+    <audio  id='audio' :autoplay='music' @ended='setIndex' :src='audioSrc[index]'>
     </audio>
-    {{ imgSrc }}
   </div>
 </template>
 
@@ -12,11 +10,12 @@
   export default {
     props: [
       'imgSrc',
-      'audioSrc'
+      'audioSrc',
+      'music'
     ],
     data() {
       return {
-        
+        index: 0
       }
     },
     methods: {
@@ -33,7 +32,18 @@
           this.music = true
           img.style.animationPlayState = 'running'
         }                
+      },
+      setIndex() {
+        if(this.audioSrc[this.index + 1]){
+          console.log('over')
+          this.index++
+        }else{
+          this.index = 0
+        }
       }
+    },
+    watch: {
+
     }
   }
 </script>
@@ -44,12 +54,13 @@
     from transform rotate(0deg)
     to transform rotate(360deg)
 
-  .music
+  .music-look
     animation rotate 5s infinite
     animation-timing-function linear
     animation-play-state running
-
-  .music-look
     width 30px
     padding 5px 10px 5px 10px
+
+  .musicActive
+    animation-play-state paused !important
 </style>
