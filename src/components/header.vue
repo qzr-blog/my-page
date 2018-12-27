@@ -1,4 +1,5 @@
 <template>
+  <!-- <el-header> -->
   <div class="header">
     <div class="nav">
       <!-- <ul class='menu'>
@@ -14,6 +15,7 @@
       </pop>
     </div>
   </div>
+  <!-- </el-header> -->
 </template>
 
 <script>

@@ -1,23 +1,23 @@
 <template>
-  <div class="container">
+  <div class="page-container">
     <el-form ref="form"
              :model="form">
       <el-form-item label="购买金额（元）"
                     :rules="[
-      { type: 'number', message: '必须为数字值'}
-    ]">
+                        { type: 'number', message: '必须为数字值'}
+                      ]">
         <el-input v-model.number="form.rmb"></el-input>
       </el-form-item>
       <el-form-item label="金价"
                     :rules="[
-      { type: 'number', message: '必须为数字值'}
-    ]">
+                        { type: 'number', message: '必须为数字值'}
+                      ]">
         <el-input v-model.number="form.yxb"></el-input>
       </el-form-item>
       <el-form-item label="寄售比例（/100w）"
                     :rules="[
-      { type: 'number', message: '必须为数字值'}
-    ]">
+                        { type: 'number', message: '必须为数字值'}
+                      ]">
         <el-input v-model.number="form.bl"></el-input>
       </el-form-item>
       <el-collapse>
@@ -89,30 +89,28 @@ export default {
         return ((100 / this.form.yxb) / (this.form.bl * 0.01) * 10).toFixed(1)
       } else if (this.form.poundage.length == 1) {
         if (this.form.poundage.indexOf('mail') != -1) {
-          let mailNum = this.form.cont == 'false' ? 0.97 : 0.95
+          let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
           return (((100 / this.form.yxb) * mailNum) / (this.form.bl * 0.01) * 10).toFixed(1)
         } else {
           return ((100 / this.form.yxb) / (this.form.bl * 0.01 * ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
         }
       } else {
-        let mailNum = this.form.cont == 'false' ? 0.97 : 0.95
+        let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
         return (((100 / this.form.yxb) * mailNum) / (this.form.bl * 0.01 * ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
       }
     },
     calcYxb () {
-
-
       if (this.form.poundage.length == 0) {
         return this.form.rmb * this.form.yxb
       } else if (this.form.poundage.length == 1) {
         if (this.form.poundage.indexOf('mail') != -1) {
-          let mailNum = this.form.cont == 'false' ? 0.97 : 0.95
+          let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
           return (this.form.rmb * this.form.yxb) * mailNum
         } else {
           return (this.form.rmb * this.form.yxb) * ((100 - this.form.poundNum) / 100)
         }
       } else {
-        let mailNum = this.form.cont == 'false' ? 0.97 : 0.95
+        let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
         return (this.form.rmb * this.form.yxb) * ((100 - this.form.poundNum) / 100) * mailNum
       }
     },
@@ -125,10 +123,11 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~assets/stylus/index'
-.container
-  justify-content space-evenly
 .resText
   font-size 30px
   color black
   margin 10px 0
+.page-container
+  display flex
+  justify-content space-evenly
 </style>

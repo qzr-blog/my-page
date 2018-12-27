@@ -1,13 +1,7 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header class="el-header">
-        <nav-header></nav-header>
-      </el-header>
-      <el-main class="el-main">
-        <router-view></router-view>
-      </el-main>
-    </el-container>
+    <nav-header></nav-header>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -27,8 +21,4 @@ export default {
   background white
   height 100vh
   background-image url('assets/img/background.jpg')
-.el-header
-  padding 0
-.el-main
-  padding 0 5vw
 </style>
