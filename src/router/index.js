@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/page/index'
-import Calc from '@/page/calcDiscount'
+import Calc from '@/page/program/calcDiscount'
+import Ws from '@/page/program/websocket'
 
 Vue.use(Router)
 
@@ -14,5 +15,9 @@ export default new Router({
     path: '/project/calc',
     name: 'Calc',
     component: Calc
+  }, {
+    path: '/project/websocket',
+    name: 'Ws',
+    component: Ws
   }]
 })

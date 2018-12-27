@@ -37,6 +37,9 @@ export default {
         children: [{
           text: 'dnf折扣计算',
           path: '/project/calc'
+        }, {
+          text: '聊天室',
+          path: '/project/websocket'
         }]
       }, {
         text: '关于',
