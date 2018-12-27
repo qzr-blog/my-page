@@ -14,13 +14,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~assets/stylus/index'
-.container
-  // padding 10px
-  width 100%
-  height calc(100vh - 60px)
-  display flex
-  justify-content center
-  background white
 .content
   padding 10px
   color $color-dialog-background

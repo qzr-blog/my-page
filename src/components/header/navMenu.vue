@@ -13,7 +13,9 @@
       <template slot="title">{{item.text}}</template>
       <el-menu-item v-for="(i, ind) of item.children"
                     :key="i.text"
-                    :index="`${index}-${ind}`">{{i.text}}</el-menu-item>
+                    :index="`${index}-${ind}`">
+        <router-link :to="i.path">{{i.text}}</router-link>
+      </el-menu-item>
     </el-submenu>
 
   </el-menu>
@@ -34,7 +36,7 @@ export default {
         path: '',
         children: [{
           text: 'dnf折扣计算',
-          path: ''
+          path: '/project/calc'
         }]
       }, {
         text: '关于',
