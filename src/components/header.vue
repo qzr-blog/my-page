@@ -35,8 +35,7 @@ export default {
 
       imgSrc: require('assets/svg/音乐.svg'),
       audioSrc: [
-        require('assets/audio/消愁.mp3'),
-        require('assets/audio/像我这样的人.mp3')
+        require('assets/audio/猪叫.mp3')
       ],
       myPhoto: require('assets/img/portrait.jpg'),
       contact: [

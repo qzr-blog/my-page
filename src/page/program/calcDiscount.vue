@@ -50,17 +50,19 @@
       </el-collapse>
     </el-form>
 
-    <div>
-      <h1>获得金币</h1>
-      <div class="resText">{{calcYxb + 'W'}}</div>
-    </div>
-    <div>
-      <h1>等于折扣</h1>
-      <div class="resText">{{calcDis + '折'}}</div>
-    </div>
-    <div>
-      <h1>折合代币</h1>
-      <div class="resText">{{calcDb + '元'}}</div>
+    <div class="content-box">
+      <div>
+        <h1>获得金币</h1>
+        <div class="resText">{{calcYxb + 'W'}}</div>
+      </div>
+      <div>
+        <h1>等于折扣</h1>
+        <div class="resText">{{calcDis + '折'}}</div>
+      </div>
+      <div>
+        <h1>折合代币</h1>
+        <div class="resText">{{calcDb + '元'}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -92,11 +94,11 @@ export default {
           let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
           return (((100 / this.form.yxb) * mailNum) / (this.form.bl * 0.01) * 10).toFixed(1)
         } else {
-          return ((100 / this.form.yxb) / (this.form.bl * 0.01 * ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
+          return ((100 / this.form.yxb) / (this.form.bl * 0.01 / ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
         }
       } else {
         let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
-        return (((100 / this.form.yxb) * mailNum) / (this.form.bl * 0.01 * ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
+        return (((100 / this.form.yxb) * mailNum) / (this.form.bl * 0.01 / ((100 - this.form.poundNum) / 100)) * 10).toFixed(1)
       }
     },
     calcYxb () {
@@ -107,11 +109,11 @@ export default {
           let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
           return (this.form.rmb * this.form.yxb) * mailNum
         } else {
-          return (this.form.rmb * this.form.yxb) * ((100 - this.form.poundNum) / 100)
+          return (this.form.rmb * this.form.yxb) / ((100 - this.form.poundNum) / 100)
         }
       } else {
         let mailNum = this.form.cont == 'false' ? 0.95 : 0.97
-        return (this.form.rmb * this.form.yxb) * ((100 - this.form.poundNum) / 100) * mailNum
+        return (this.form.rmb * this.form.yxb) / ((100 - this.form.poundNum) / 100) * mailNum
       }
     },
     calcDb () {
@@ -130,4 +132,8 @@ export default {
 .page-container
   display flex
   justify-content space-evenly
+.content-box
+  display flex
+  justify-content space-around
+  flex-basis 30vw
 </style>
