@@ -27,6 +27,7 @@ module.exports = {
       'components': resolve('src/components'),
       'common': resolve('src/common'),
       'router': resolve('src/router'),
+      'static': path.resolve(__dirname, '../static'),
       'page': resolve('src/page')
     }
   },
