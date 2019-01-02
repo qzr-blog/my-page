@@ -4,9 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VueSocketIO from 'vue-socket.io'
+
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.use(new VueSocketIO({
+  debug: false,
+  connection: 'http://47.110.149.190:3000'
+}))
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
@@ -16,5 +22,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })

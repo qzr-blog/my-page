@@ -33,24 +33,25 @@ export default {
     return {
       text: '',
       inputText: '',
-      ws: new WebSocket('ws://47.110.149.190:3000/'),
       saveText: '',
       personNum: 0,
       textArr: []
     }
   },
-  mounted () {
-    this.ws.onopen = () => {
+  sockets: {
+    connect () {
       console.log('ws open')
       this.text = 'OPEN'
-    }
-    this.ws.onclose = () => {
-      console.log('ws close')
-      this.text = 'CLOSE'
-    }
-    this.ws.onmessage = e => {
-      let data
-      data = JSON.parse(e.data)
+    },
+    enter (data) {
+      this.personNum = data.num
+      this.textArr.push(data)
+    },
+    leave (data) {
+      this.personNum = data.num
+      this.textArr.push(data)
+    },
+    message (data) {
       this.personNum = data.num
       if (data.str == this.saveText) {
         let dataObj = {
@@ -73,10 +74,9 @@ export default {
         return
       }
       this.saveText = this.inputText
-      this.ws.send(this.inputText)
+      this.$socket.emit('message', this.inputText)
       this.inputText = ''
       this.$refs.inputText.focus()
-      console.log(this.textArr)
     }
   },
   updated () {
