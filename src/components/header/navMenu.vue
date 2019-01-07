@@ -40,6 +40,9 @@ export default {
         }, {
           text: '聊天室',
           path: '/project/websocket'
+        }, {
+          text: '俄罗斯方块',
+          path: '/project/tetris'
         }]
       }, {
         text: '关于',
