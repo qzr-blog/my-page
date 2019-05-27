@@ -9,6 +9,11 @@ import VueSocketIO from 'vue-socket.io'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import L2Dwidget from 'live2d-widget'
+
+console.log(L2Dwidget)
+L2Dwidget.config()
+
 Vue.use(new VueSocketIO({
   debug: false,
   connection: 'http://47.110.149.190:3000'
