@@ -80,13 +80,12 @@ export default {
         switch (index) {
           case 0:
             return 'none'
-            break
+
           case 1:
             return 'done'
-            break
+
           case 2:
             return 'current'
-            break
         }
       }
     },
@@ -148,7 +147,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~assets/stylus/index'
+@import '../../assets/stylus/index'
 $backColor = #F2FAFF
 .colDiv
   height 20px

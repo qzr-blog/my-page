@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import pop from "components/header/pop";
-import music from 'components/header/music'
-import navMenu from 'components/header/navMenu'
+import pop from "./header/pop.vue"
+import music from './header/music.vue'
+import navMenu from './header/navMenu.vue'
 
 
 export default {

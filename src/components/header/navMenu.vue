@@ -2,14 +2,14 @@
   <el-menu default-active="0"
            class="el-menu"
            mode="horizontal">
-    <el-menu-item v-for="(item, index) of menuList"
-                  v-if="!item.children"
+                  <!-- v-if="!item.children" -->
+    <el-menu-item v-for="(item, index) of hasMenuList"
                   :index="index + ''"
                   :key="item.text">{{item.text}}</el-menu-item>
     <el-submenu :index="index + getIndex + ''"
-                v-for="(item, index) of menuList"
-                :key="item.text"
-                v-if="item.children">
+                v-for="(item, index) of noMenuList"
+                :key="item.text">
+                <!-- v-if="item.children" -->
       <template slot="title">{{item.text}}</template>
       <el-menu-item v-for="(i, ind) of item.children"
                     :key="i.text"
@@ -57,6 +57,16 @@ export default {
         if (item.children) index++
       }
       return index
+    },
+    hasMenuList() {
+      return this.menuList.filter(x => {
+        return !x.children
+      })
+    },
+    noMenuList() {
+      return this.menuList.filter(x => {
+        return x.children
+      })
     }
   }
 }
