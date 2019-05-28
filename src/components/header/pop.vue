@@ -75,6 +75,7 @@ export default {
   width 30px
   height 30px
   margin 5px 10px
+  filter contrast(1%) !important
   // position relative
 
 .pop
@@ -82,7 +83,6 @@ export default {
   margin-top 10px
 
 .pop-div
-  filter contrast(1%) !important
   position relative
 
 .pop-if-img
