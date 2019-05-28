@@ -3,12 +3,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
 import store from './store'
+import api from './api'
+import axios from './common/js/axios'
 import 'normalize.css'
 
 import VueSocketIO from 'vue-socket.io'
 
 import L2Dwidget from 'live2d-widget'
 import CanvasNest from 'canvas-nest.js'
+
+Vue.prototype.$api = api
+Vue.prototype.$axios = axios
 
 new CanvasNest(document.querySelector('body'), {
   color: "25,142,243",

@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/index'
+@import '~common/stylus/index'
 .resText
   font-size 30px
   color black

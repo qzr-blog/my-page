@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~assets/stylus/index'
+@import '~common/stylus/index'
 .content
   padding 10px
   color $color-dialog-background

@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/index'
+@import '~common/stylus/index'
 $backColor = #F2FAFF
 .colDiv
   height 20px

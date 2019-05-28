@@ -58,27 +58,34 @@ export default {
 <style lang="stylus">
 .container
   position absolute
+
 .my-photo
   width 50px
   height 50px
   border-radius 50px
   overflow hidden
   display inline-block
+
 .pop-div-img
   width 30px
   height 30px
   margin 5px 10px
   // position relative
+
 .pop
   position absolute
   margin-top 10px
+
 .pop-div
+  filter contrast(1%) !important
   position relative
+
 .pop-if-img
   height 250px
   position absolute
   right 5rem
   bottom -5rem
+
 // 弹跳效果
 .hvr-bounce-in
   display inline-block
@@ -88,6 +95,7 @@ export default {
   box-shadow 0 0 1px transparent
   -webkit-transition-duration 0.5s
   transition-duration 0.5s
+
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active
   -webkit-transform scale(1.2)
   transform scale(1.2)

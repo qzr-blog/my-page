@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang='stylus'>
-@import '~assets/stylus/index'
+@import '~common/stylus/index'
 
 #app
   background white

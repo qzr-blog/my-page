@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import isJson from 'common/js/jsJson'
 
 export default {
   data () {
@@ -91,7 +90,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/index'
+@import '~common/stylus/index'
 .sysWord
   align-self center
 .sysWord span

@@ -29,6 +29,9 @@ module.exports = {
         'common': '@/common',
         'router': '@/router',
         'views': '@/views',
+        'util': '@/util',
+        'store': '@/store',
+        'api': '@/api',
       }
     }
   },
