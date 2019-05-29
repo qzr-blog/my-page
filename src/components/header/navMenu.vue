@@ -2,19 +2,20 @@
   <el-menu default-active="0"
            class="el-menu"
            mode="horizontal">
-                  <!-- v-if="!item.children" -->
     <el-menu-item v-for="(item, index) of hasMenuList"
                   :index="index + ''"
-                  :key="item.text">{{item.text}}</el-menu-item>
+                  :key="item.text"
+                  @click="goRouter(item.path)">{{item.text}}
+    </el-menu-item>
     <el-submenu :index="index + getIndex + ''"
                 v-for="(item, index) of noMenuList"
                 :key="item.text">
-                <!-- v-if="item.children" -->
       <template slot="title">{{item.text}}</template>
       <el-menu-item v-for="(i, ind) of item.children"
                     :key="i.text"
-                    :index="`${index}-${ind}`">
-        <router-link :to="i.path">{{i.text}}</router-link>
+                    :index="`${index}-${ind}`"
+                    @click="goRouter(i.path)">
+        {{i.text}}
       </el-menu-item>
     </el-submenu>
 
@@ -27,7 +28,7 @@ export default {
     return {
       menuList: [{
         text: '首页',
-        path: ''
+        path: '/index'
       }, {
         text: '状态',
         path: ''
@@ -46,7 +47,7 @@ export default {
         }]
       }, {
         text: '关于',
-        path: ''
+        path: '/about'
       }]
     }
   },
@@ -58,15 +59,20 @@ export default {
       }
       return index
     },
-    hasMenuList() {
+    hasMenuList () {
       return this.menuList.filter(x => {
         return !x.children
       })
     },
-    noMenuList() {
+    noMenuList () {
       return this.menuList.filter(x => {
         return x.children
       })
+    }
+  },
+  methods: {
+    goRouter (path) {
+      this.$router.push({ path })
     }
   }
 }
