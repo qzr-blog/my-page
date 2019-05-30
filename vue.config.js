@@ -36,6 +36,28 @@ module.exports = {
     }
   },
 
+  // configureWebpack: config => {
+
+  //   Object.assign(config, {
+  //     // 开发生产共同配置
+  //     resolve: {
+  //       extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
+  //       alias: {
+  //         vue$: "vue/dist/vue.js",
+  //         "@": path.resolve(__dirname, "./src"),
+  //         components: path.resolve(__dirname, "./src/components"),
+  //         util: path.resolve(__dirname, "./src/util"),
+  //         router: path.resolve(__dirname, "./src/router"),
+  //         views: path.resolve(__dirname, "./src/views"),
+  //         assets: path.resolve(__dirname, "./src/assets"),
+  //         api: path.resolve(__dirname, "./src/api"),
+  //         store: path.resolve(__dirname, "./src/store"),
+  //         // mixins: path.resolve(__dirname, "./src/mixins")
+  //       }
+  //     }
+  //   });
+  // },
+
   // // 编译警告
   // lintOnSave: false,
   // // 是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。

@@ -9,7 +9,8 @@
     </el-menu-item>
     <el-submenu :index="index + getIndex + ''"
                 v-for="(item, index) of noMenuList"
-                :key="item.text">
+                :key="item.text"
+                popper-class="el-submenu">
       <template slot="title">{{item.text}}</template>
       <el-menu-item v-for="(i, ind) of item.children"
                     :key="i.text"
@@ -28,10 +29,7 @@ export default {
     return {
       menuList: [{
         text: '首页',
-        path: '/index'
-      }, {
-        text: '状态',
-        path: ''
+        path: '/'
       }, {
         text: '项目',
         path: '',
@@ -48,6 +46,9 @@ export default {
       }, {
         text: '关于',
         path: '/about'
+      }, {
+        text: '状态',
+        path: '/state'
       }]
     }
   },
@@ -81,4 +82,13 @@ export default {
 <style lang="stylus" scoped>
 .el-menu
   width 100%
+
+.el-menu li
+  width 10%
+  display flex
+  justify-content center
+
+.el-submenu
+  display flex
+  justify-content center
 </style>
