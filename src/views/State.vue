@@ -8,9 +8,10 @@
 </template>
 
 <script lang='ts'>
-import { Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
-export default class Home extends Vue {
+@Component
+export default class State extends Vue {
   startTime = "2019-01-01";
 
   get calcRunDay() {
