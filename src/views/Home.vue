@@ -2,8 +2,8 @@
   <div class="page-container">
     <div class="content">
       <el-card class="box-card">
-        <h2>Hello blog</h2>
-        <p>爱神的箭发设计费拉开江东父老</p>
+        <h2>首页</h2>
+        <p>首页首页首页</p>
       </el-card>
     </div>
   </div>
