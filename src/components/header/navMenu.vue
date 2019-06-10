@@ -84,7 +84,7 @@ export default {
   width 100%
 
 .el-menu li
-  width 10%
+  width 8%
   display flex
   justify-content center
 
