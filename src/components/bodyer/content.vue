@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-box">
     <el-card class="box-card">
       <h2>{{cData.title}}</h2>
       <p>{{cData.content}}</p>
@@ -11,16 +11,19 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 interface contentObj {
-	title: string,
-	content: string
+  title: string;
+  content: string;
 }
 
 @Component
 export default class Content extends Vue {
   @Prop()
-  cData: contentObj
+  cData: contentObj;
 }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.content-box
+  width 40vw
+</style>
 

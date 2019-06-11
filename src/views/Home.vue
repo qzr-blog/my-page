@@ -20,7 +20,7 @@ import bodyContent from "components/bodyer/content.vue";
 export default class Home extends Vue {
   contentData: object = {
     title: "首页",
-    content: "首页首页首页首页"
+    content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
   }
 
   mounted() {
