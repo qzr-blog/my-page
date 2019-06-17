@@ -18,12 +18,13 @@ interface contentObj {
 @Component
 export default class Content extends Vue {
   @Prop()
-  cData: contentObj;
+  cData!: contentObj
 }
 </script>
 
 <style lang="stylus" scoped>
 .content-box
   width 40vw
+  margin-bottom 20px
 </style>
 

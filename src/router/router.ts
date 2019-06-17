@@ -4,6 +4,7 @@ import Project from './project/index'
 import Home from 'views/Home.vue'
 import About from 'views/About.vue'
 import State from 'views/State.vue'
+import NotFoundComponent from 'views/404.vue'
 
 Vue.use(Router)
 
@@ -11,6 +12,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    { path: '*', component: NotFoundComponent },
     {
       path: '/',
       name: 'home',

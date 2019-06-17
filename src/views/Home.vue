@@ -1,9 +1,10 @@
 <template>
   <div class="page-container">
     <div class="content">
-
-      <body-content :cData="contentData"></body-content>
-
+      <div v-for="(item, index) of contentData"
+           :key="index">
+        <body-content :cData="item"></body-content>
+      </div>
     </div>
   </div>
 </template>
@@ -18,10 +19,18 @@ import bodyContent from "components/bodyer/content.vue";
   }
 })
 export default class Home extends Vue {
-  contentData: object = {
-    title: "首页",
-    content: "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-  }
+  contentData: Array<object> = [
+    {
+      title: "首页",
+      content:
+        "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+    },
+    {
+      title: "首页2",
+      content:
+        "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+    }
+  ];
 
   mounted() {
     console.log("home");
@@ -31,6 +40,7 @@ export default class Home extends Vue {
 
 <style lang="stylus" scoped>
 @import '~common/stylus/index'
+
 .content
   padding 10px
   color $color-dialog-background
