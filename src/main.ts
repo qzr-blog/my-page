@@ -13,6 +13,10 @@ import VueSocketIO from 'vue-socket.io'
 import L2Dwidget from 'live2d-widget'
 import CanvasNest from 'canvas-nest.js'
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+Vue.use(mavonEditor)
+
 
 Vue.prototype.$axios = axios
 Vue.prototype.$util = util

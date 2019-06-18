@@ -49,6 +49,9 @@ export default {
       }, {
         text: '状态',
         path: '/state'
+      }, {
+        text: '编辑',
+        path: '/edit'
       }]
     }
   },

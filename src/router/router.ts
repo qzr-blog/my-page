@@ -5,6 +5,8 @@ import Home from 'views/Home.vue'
 import About from 'views/About.vue'
 import State from 'views/State.vue'
 import NotFoundComponent from 'views/404.vue'
+import Edit from 'views/Edit.vue'
+import Show from 'views/Show.vue'
 
 Vue.use(Router)
 
@@ -25,6 +27,14 @@ export default new Router({
       path: '/state',
       name: 'state',
       component: State
+    }, {
+      path: '/edit',
+      name: 'edit',
+      component: Edit
+    },{
+      path: '/show',
+      name: 'show',
+      component: Show
     },
     ...Project
   ]
