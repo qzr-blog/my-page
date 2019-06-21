@@ -1,13 +1,20 @@
 <template>
-  <div></div>
+  <div>
+    
+  </div>
 </template>
 
 <script lang='ts'>
-import {Component, Vue} from 'vue-property-decorator'
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class Home extends Vue {} 
+export default class Home extends Vue {
+  $api: any;
+
+  mounted() {
+    this.$api.basic.getInfo()
+  }
+}
 </script>
 
-<style lang='stylus' scoped>
-</style>
+<style lang='stylus' scoped></style>

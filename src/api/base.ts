@@ -1,6 +1,7 @@
-const apis:any = {
+const apis: any = {
   basic: {
-    getInfo: '/getInfo' //获取文章信息
+    getOverview: '/overview', //获取文章总览
+    getInfo: '/info' //获取文章信息
   }
 }
 

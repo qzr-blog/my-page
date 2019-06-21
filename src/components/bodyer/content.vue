@@ -1,5 +1,6 @@
 <template>
-  <div class="container" @click="show">
+  <div class="container"
+       @click="show">
     <div class="box-card"
          :class="{'box-even': index%2 !== 0 }">
       <div class="content-box">
@@ -24,6 +25,8 @@ interface contentObj {
   title: string;
   content: string;
   img: string;
+  id: number;
+  time: string;
 }
 
 @Component
@@ -34,7 +37,7 @@ export default class Content extends Vue {
   index!: number;
 
   show() {
-    this.$router.push('/show')
+    this.$router.push({ path: `/show/${this.cData.id}`});
   }
 }
 </script>

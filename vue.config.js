@@ -20,43 +20,58 @@ module.exports = {
   // filenameHashing: true,
   // // 多页面
   // pages: undefined,
+  // publicPath: "./",
   // 配置路径别名
-  configureWebpack: {
-    resolve: {
-      alias: {
-        'assets': '@/assets',
-        'components': '@/components',
-        'common': '@/common',
-        'router': '@/router',
-        'views': '@/views',
-        'util': '@/util',
-        'store': '@/store',
-        'api': '@/api',
-      }
-    }
-  },
-
-  // configureWebpack: config => {
-
-  //   Object.assign(config, {
-  //     // 开发生产共同配置
-  //     resolve: {
-  //       extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
-  //       alias: {
-  //         vue$: "vue/dist/vue.js",
-  //         "@": path.resolve(__dirname, "./src"),
-  //         components: path.resolve(__dirname, "./src/components"),
-  //         util: path.resolve(__dirname, "./src/util"),
-  //         router: path.resolve(__dirname, "./src/router"),
-  //         views: path.resolve(__dirname, "./src/views"),
-  //         assets: path.resolve(__dirname, "./src/assets"),
-  //         api: path.resolve(__dirname, "./src/api"),
-  //         store: path.resolve(__dirname, "./src/store"),
-  //         // mixins: path.resolve(__dirname, "./src/mixins")
-  //       }
+  // configureWebpack: {
+  //   resolve: {
+  //     extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
+  //     alias: {
+  //       vue$: "vue/dist/vue.js",
+  //       "@": path.resolve(__dirname, "src/"),
+  //       // 'assets': '@/assets',
+  //       // 'components': '@/components',
+  //       // 'common': '@/common',
+  //       // 'router': '@/router',
+  //       // 'views': '@/views',
+  //       // 'util': '@/util',
+  //       // 'store': '@/store',
+  //       // 'api': '@/api',
+  //       components: path.resolve(__dirname, "./src/components"),
+  //       common: path.resolve(__dirname, "./src/common"),
+  //       util: path.resolve(__dirname, "./src/util"),
+  //       router: path.resolve(__dirname, "./src/router"),
+  //       views: path.resolve(__dirname, "./src/views"),
+  //       assets: path.resolve(__dirname, "./src/assets"),
+  //       api: path.resolve(__dirname, "./src/api"),
+  //       store: path.resolve(__dirname, "./src/store"),
   //     }
-  //   });
+  //   }
   // },
+
+  configureWebpack: config => {
+
+    Object.assign(config, {
+      // 开发生产共同配置
+      resolve: {
+        extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
+        alias: {
+          "@": path.resolve(__dirname, "./src"),
+          components: path.resolve(__dirname, "./src/components"),
+          common: path.resolve(__dirname, "./src/common"),
+          util: path.resolve(__dirname, "./src/util"),
+          router: path.resolve(__dirname, "./src/router"),
+          views: path.resolve(__dirname, "./src/views"),
+          assets: path.resolve(__dirname, "./src/assets"),
+          api: path.resolve(__dirname, "./src/api"),
+          store: path.resolve(__dirname, "./src/store"),
+        }
+      },
+
+    });
+
+
+
+  },
 
   // // 编译警告
   // lintOnSave: false,
@@ -70,16 +85,16 @@ module.exports = {
   // crossorigin: undefined,
   // // 在生成的 HTML 中的 <link rel="stylesheet"> 和 <script> 标签上启用 Subresource Integrity (SRI)。如果你构建后的文件是部署在 CDN 上的，启用该选项可以提供额外的安全性。需要注意的是该选项仅影响由 html-webpack-plugin 在构建时注入的标签 - 直接写在模版 (public/index.html) 中的标签不受影响。另外，当启用 SRI 时，preload resource hints 会被禁用，因为 Chrome 的一个 bug 会导致文件被下载两次。
   // integrity: false,
-  // // 反向代理
-  // devServer: {
-  //   // devServer: {
-  //   //     proxy: {
-  //   //       '/api': {
-  //   //         target: '1',
-  //   //         ws: true,
-  //   //         changeOrigin: true
-  //   //       }
-  //   //     }
-  //   // }
-  // }
+  // 反向代理
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'https://www.easy-mock.com/mock/5cf0df0484d6c23172d0bc30/blog',
+        pathRewrite: {
+          '^/api': ''
+        },
+        changOrigin: true,
+      }
+    }
+  }
 }

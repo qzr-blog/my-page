@@ -3,7 +3,8 @@
     <div class="content">
       <div v-for="(item, index) of contentData"
            :key="index">
-        <body-content :cData="item" :index="index"></body-content>
+        <body-content :cData="item"
+                      :index="index"></body-content>
       </div>
     </div>
   </div>
@@ -13,31 +14,47 @@
 import { Component, Vue } from "vue-property-decorator";
 import bodyContent from "components/bodyer/content.vue";
 
+interface overviewObj {
+  title: string;
+  content: string;
+  img: any;
+  id: number;
+  time: string;
+}
+
 @Component({
   components: {
     bodyContent
   }
 })
 export default class Home extends Vue {
-  contentData: Array<object> = [
-    {
-      title: "首页",
-      time: '2019-06-18',
-      content:
-        "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-      img: require("assets/img/portrait.jpg")
-    },
-    {
-      title: "首页2",
-      time: '2019-06-18',
-      content:
-        "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-      img: require("assets/img/portrait.jpg")
-    }
-  ];
+  $api: any;
+  contentData: Array<object> = [];
+  // = [
+  //   {
+  //     title: "首页",
+  //     time: "2019-06-18",
+  //     content:
+  //       "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+  //     img: require("assets/img/portrait.jpg")
+  //   },
+  //   {
+  //     title: "首页2",
+  //     time: "2019-06-18",
+  //     content:
+  //       "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
+  //     img: require("assets/img/portrait.jpg")
+  //   }
+  // ];
 
   mounted() {
-    console.log("home");
+    const THAT = this;
+    this.$api.basic.getOverview().then((x: any) => {
+      this.$nextTick(function() {
+        THAT.contentData = x.data
+        console.log(THAT.contentData);
+      });
+    });
   }
 }
 </script>

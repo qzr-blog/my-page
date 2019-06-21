@@ -18,9 +18,6 @@ import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor)
 
 
-Vue.prototype.$axios = axios
-Vue.prototype.$util = util
-Vue.prototype.$api = api
 
 new CanvasNest(document.querySelector('body'), {
   color: '25,142,243',
@@ -62,6 +59,10 @@ Vue.use(
 )
 
 Vue.config.productionTip = false
+
+Vue.prototype.$axios = axios
+Vue.prototype.$util = util
+Vue.prototype.$api = api
 
 new Vue({
   router,
