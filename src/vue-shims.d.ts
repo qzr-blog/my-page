@@ -4,8 +4,8 @@ declare module '*.vue' {
   export default Vue
 }
 
-// import Vue from 'vue'
 // declare module 'vue/types/vue' {
+//   import Vue from 'vue'
 //   interface Vue {
 //     $axios: any
 //     $util: any

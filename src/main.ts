@@ -1,4 +1,4 @@
-import './plugins/element.js'
+import './plugins/element.ts'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
@@ -10,7 +10,7 @@ import util from './util/util'
 
 import VueSocketIO from 'vue-socket.io'
 
-import L2Dwidget from 'live2d-widget'
+// import L2Dwidget from 'live2d-widget'
 import CanvasNest from 'canvas-nest.js'
 
 import mavonEditor from 'mavon-editor'
@@ -26,30 +26,30 @@ new CanvasNest(document.querySelector('body'), {
   count: 99
 })
 
-L2Dwidget.L2Dwidget.init({
-  display: {
-    position: 'right',
-    width: 170,
-    height: 230,
-    hOffset: 0,
-    vOffset: -20
-  },
-  mobile: {
-    show: true,
-    scale: 1,
-    motion: true
-  },
-  react: {
-    opacity: 1
-  },
-  dev: {
-    border: false
-  },
-  dialog: {
-    enable: true,
-    hitokoto: false
-  }
-})
+// L2Dwidget.L2Dwidget.init({
+//   display: {
+//     position: 'right',
+//     width: 170,
+//     height: 230,
+//     hOffset: 0,
+//     vOffset: -20
+//   },
+//   mobile: {
+//     show: true,
+//     scale: 1,
+//     motion: true
+//   },
+//   react: {
+//     opacity: 1
+//   },
+//   dev: {
+//     border: false
+//   },
+//   dialog: {
+//     enable: true,
+//     hitokoto: false
+//   }
+// })
 
 Vue.use(
   new VueSocketIO({

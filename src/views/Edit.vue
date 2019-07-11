@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
-    <mavon-editor v-model="value" />
+    <mavon-editor v-model="value"
+                  @save="saveMark" />
   </div>
 </template>
 
@@ -11,6 +12,11 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Home extends Vue {
   value = "";
   defaultData = "preview";
+
+  saveMark(value:string, render:string) {
+    console.log(value);
+    console.log(render);
+  }
 }
 </script>
 

@@ -1,5 +1,6 @@
 // const baseUrl = 'https://www.easy-mock.com/mock/5c08f24de1c4a705638a802c/wadejerryVXPay'
-let baseUrl: string = 'api'
+let baseUrl: string = '/api'
+// let baseUrl: string = ''
 // if (process.env.NODE_ENV == 'production') {
 //   baseUrl = ''
 // } else {

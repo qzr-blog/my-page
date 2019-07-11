@@ -7,6 +7,9 @@ const basic: object = {
   },
   getOverview() {
     return axios.get(`${base.basic.getOverview}`)
+  },
+  saveInfo() {
+    return axios.post(`${base.basic.saveInfo}`)
   }
 }
 
