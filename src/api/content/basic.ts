@@ -10,7 +10,10 @@ const basic: object = {
   },
   saveInfo() {
     return axios.post(`${base.basic.saveInfo}`)
-  }
+  },
+  createInfo(data: Object) {
+    return axios.post(`${base.basic.createInfo}`, data)
+  },
 }
 
 export default basic

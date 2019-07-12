@@ -44,14 +44,21 @@ export default {
           path: '/project/tetris'
         }]
       }, {
+        text: '管理',
+        path: '',
+        children: [{
+          text: '编辑',
+          path: '/admin/edit'
+        }, {
+          text: '管理',
+          path: '/admin/index'
+        }]
+      }, {
         text: '关于',
         path: '/about'
       }, {
         text: '状态',
         path: '/state'
-      }, {
-        text: '编辑',
-        path: '/edit'
       }]
     }
   },

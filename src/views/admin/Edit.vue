@@ -9,13 +9,17 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class Home extends Vue {
+export default class Edit extends Vue {
   value = "";
   defaultData = "preview";
+  $api: any;
 
-  saveMark(value:string, render:string) {
+  saveMark(value: string, render: string) {
     console.log(value);
     console.log(render);
+    this.$api.basic.createInfo({content: value}).then((res: any) => {
+      console.log(res);
+    });
   }
 }
 </script>
