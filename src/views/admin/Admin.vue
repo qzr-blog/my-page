@@ -12,8 +12,7 @@
                        label="发布时间"
                        width="120">
       </el-table-column>
-      <el-table-column 
-                       label="操作"
+      <el-table-column label="操作"
                        width="100">
         <template slot-scope="scope">
           <el-button @click="handleClick(scope.row)"
@@ -32,14 +31,16 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Admin extends Vue {
-  tableData = [{
-    title: '',
-    time: ''
-  }];
+  tableData = [
+    {
+      title: "",
+      time: ""
+    }
+  ];
   $api: any;
 
-  handleClick(id) {
-    console.log(id)
+  handleClick(id: any) {
+    console.log(id);
   }
 
   mounted() {
