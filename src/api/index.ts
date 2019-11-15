@@ -1,6 +1,8 @@
+import info from './content/info'
 import basic from './content/basic'
 const apis:any = {
-  basic
+  basic,
+  info
 }
 
 export default apis

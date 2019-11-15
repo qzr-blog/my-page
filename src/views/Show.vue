@@ -19,9 +19,10 @@ export default class Home extends Vue {
   info: string = "";
 
   mounted() {
-    this.$api.basic.getInfo().then((res: any) => {
+    this.$api.info.getInfo({id: 1}).then((res: any) => {
+      console.log(res)
       this.$nextTick(() => {
-        this.info = res.data;
+        this.info = res.data[0].content;
       });
     });
   }
