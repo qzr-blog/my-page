@@ -20,6 +20,9 @@
                      size="small">查看</el-button>
           <el-button type="text"
                      size="small">编辑</el-button>
+          <el-button type="text"
+                     size="small"
+                     @click="deleteInfo(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -43,12 +46,21 @@ export default class Admin extends Vue {
     console.log(id);
   }
 
-  mounted() {
-    console.log("adf");
+  deleteInfo(data: any) {
+    this.$api.info.delete({id: data.id}).then((res:any) => {
+      console.log(res)
+      this.getOverview()
+    })
+  }
+
+  getOverview() {
     this.$api.basic.getOverview().then((res: any) => {
       this.tableData = res.data;
-      console.log(this.tableData);
     });
+  }
+
+  mounted() {
+    this.getOverview()
   }
 }
 </script>

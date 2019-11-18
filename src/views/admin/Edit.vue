@@ -3,7 +3,7 @@
     <span>
       <el-input type="text"
                 placeholder="请输入内容"
-                v-model="text"
+                v-model="title"
                 maxlength="10"
                 show-word-limit>
       </el-input>
@@ -21,20 +21,24 @@ export default class Edit extends Vue {
   value = "";
   defaultData = "preview";
   $api: any;
+  title: string = "";
 
   saveMark(value: string, render: string) {
     console.log(value);
-    console.log(render);
+    console.log(this.title);
 
-    // this.$api.info.createInfo({content: value}).then((res: any) => {
-    //   console.log(res);
-    // });
+    this.$api.info
+      .createInfo({ title: this.title, content: value })
+      .then((res: any) => {
+        alert('ok')
+      });
   }
 }
 </script>
 
 <style lang='stylus' scoped>
 @import '~common/stylus/index'
-.page-container 
+
+.page-container
   display block
 </style>

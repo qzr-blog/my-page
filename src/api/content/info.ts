@@ -13,6 +13,9 @@ const infoObj: object = {
   },
   createInfo(data: Object) {
     return axios.post(`${info}`, data);
+  },
+  delete(data: any) {
+    return axios.delete(`${info}/${data.id}`)
   }
 };
 
