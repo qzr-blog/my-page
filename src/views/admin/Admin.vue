@@ -19,6 +19,7 @@
                      type="text"
                      size="small">查看</el-button>
           <el-button type="text"
+                     @click="editInfo(scope.row)"
                      size="small">编辑</el-button>
           <el-button type="text"
                      size="small"
@@ -40,17 +41,19 @@ export default class Admin extends Vue {
       time: ""
     }
   ];
-  $api: any;
 
-  handleClick(id: any) {
-    console.log(id);
+  handleClick(data: any) {
+    this.$router.push(`/show/${data.id}`);
   }
 
   deleteInfo(data: any) {
-    this.$api.info.delete({id: data.id}).then((res:any) => {
-      console.log(res)
-      this.getOverview()
-    })
+    this.$api.info.delete({ id: data.id }).then((res: any) => {
+      this.getOverview();
+    });
+  }
+
+  editInfo(data: any) {
+    this.$router.push(`/edit/${data.id}`);
   }
 
   getOverview() {
@@ -60,7 +63,7 @@ export default class Admin extends Vue {
   }
 
   mounted() {
-    this.getOverview()
+    this.getOverview();
   }
 }
 </script>

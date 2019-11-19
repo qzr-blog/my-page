@@ -3,7 +3,7 @@ import Admin from 'views/admin/Admin.vue'
 
 export default [
   {
-    path: '/admin/edit',
+    path: '/admin/edit/:id',
     name: 'edit',
     component: Edit
   },

@@ -55,15 +55,15 @@ module.exports = {
       resolve: {
         extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
         alias: {
-          "@": path.resolve(__dirname, "./src"),
-          components: path.resolve(__dirname, "./src/components"),
-          common: path.resolve(__dirname, "./src/common"),
-          util: path.resolve(__dirname, "./src/util"),
-          router: path.resolve(__dirname, "./src/router"),
-          views: path.resolve(__dirname, "./src/views"),
-          assets: path.resolve(__dirname, "./src/assets"),
-          api: path.resolve(__dirname, "./src/api"),
-          store: path.resolve(__dirname, "./src/store"),
+          "@": path.resolve(__dirname, "src"),
+          components: path.resolve(__dirname, "src/components"),
+          common: path.resolve(__dirname, "src/common"),
+          util: path.resolve(__dirname, "src/util"),
+          router: path.resolve(__dirname, "src/router"),
+          views: path.resolve(__dirname, "src/views"),
+          assets: path.resolve(__dirname, "src/assets"),
+          api: path.resolve(__dirname, "src/api"),
+          store: path.resolve(__dirname, "src/store"),
         }
       },
 

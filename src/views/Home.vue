@@ -30,29 +30,12 @@ interface overviewObj {
 export default class Home extends Vue {
   $api: any;
   contentData: Array<object> = [];
-  // = [
-  //   {
-  //     title: "首页",
-  //     time: "2019-06-18",
-  //     content:
-  //       "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-  //     img: require("assets/img/portrait.jpg")
-  //   },
-  //   {
-  //     title: "首页2",
-  //     time: "2019-06-18",
-  //     content:
-  //       "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容",
-  //     img: require("assets/img/portrait.jpg")
-  //   }
-  // ];
 
   mounted() {
     const THAT = this;
     this.$api.basic.getOverview().then((x: any) => {
       this.$nextTick(function() {
         THAT.contentData = x.data
-        console.log(THAT.contentData);
       });
     });
   }

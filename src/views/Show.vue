@@ -19,7 +19,8 @@ export default class Home extends Vue {
   info: string = "";
 
   mounted() {
-    this.$api.info.getInfo({id: 1}).then((res: any) => {
+    const id = this.$route.params
+    this.$api.info.getInfo({id: id.id}).then((res: any) => {
       console.log(res)
       this.$nextTick(() => {
         this.info = res.data[0].content;

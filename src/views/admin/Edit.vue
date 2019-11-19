@@ -15,23 +15,26 @@
 
 <script lang='ts'>
 import { Component, Vue } from "vue-property-decorator";
+import { delHtmlTag } from "@/common/js/tool";
 
 @Component
 export default class Edit extends Vue {
   value = "";
   defaultData = "preview";
-  $api: any;
   title: string = "";
 
   saveMark(value: string, render: string) {
-    console.log(value);
-    console.log(this.title);
+    const text = delHtmlTag(render);
 
     this.$api.info
-      .createInfo({ title: this.title, content: value })
+      .createInfo({ title: this.title, content: value, text })
       .then((res: any) => {
-        alert('ok')
+        alert("ok");
       });
+  }
+
+  mounted() {
+    console.log(this.$route.query);
   }
 }
 </script>

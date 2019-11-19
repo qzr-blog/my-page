@@ -9,11 +9,11 @@
           <h2 class="time">{{cData.time}}</h2>
 
         </div>
-        <p class="content">{{cData.content}}</p>
+        <p class="content">{{cData.text}}</p>
       </div>
-      <div class="img-box">
+      <!-- <div class="img-box">
         <img :src="cData.img">
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -35,6 +35,8 @@ export default class Content extends Vue {
   cData!: contentObj;
   @Prop()
   index!: number;
+
+  
 
   show() {
     this.$router.push({ path: `/show/${this.cData.id}`});
@@ -73,7 +75,7 @@ title-font = 22px
   border-radius 4px
   overflow hidden
   height 25vh
-  justify-content center
+  justify-content left
   align-items center
 
 .box-card:hover
@@ -83,7 +85,7 @@ title-font = 22px
   transform scale(1.1)
 
 .box-even
-  flex-direction row-reverse
+  // flex-direction row-reverse
 
 .content-box
   padding 1.5rem
