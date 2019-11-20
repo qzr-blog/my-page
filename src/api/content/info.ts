@@ -3,18 +3,25 @@ import axios from "@/common/js/axios";
 
 const info = base.info
 
+interface info {
+  id: number,
+  content?: string,
+  text?: string,
+  title?: string
+}
+
 const infoObj: object = {
-  getInfo(data: Object) {
+  get(data: info) {
     console.log(data)
     return axios.get(`${info}`, {params: data});
   },
-  saveInfo() {
-    return axios.put(`${info}`);
+  update(data: info) {
+    return axios.put(`${info}/${data.id}`, data);
   },
-  createInfo(data: Object) {
+  create(data: info) {
     return axios.post(`${info}`, data);
   },
-  delete(data: any) {
+  delete(data: info) {
     return axios.delete(`${info}/${data.id}`)
   }
 };

@@ -25,16 +25,41 @@ export default class Edit extends Vue {
 
   saveMark(value: string, render: string) {
     const text = delHtmlTag(render);
+    const query: any = this.$route.query;
 
-    this.$api.info
-      .createInfo({ title: this.title, content: value, text })
-      .then((res: any) => {
-        alert("ok");
-      });
+    if (Object.keys(query).length !== 0) {
+      this.$api.info
+        .update({id: query.id, title: this.title, content: value, text })
+        .then((res: any) => {
+          this.$message({
+            showClose: true,
+            message: "OK",
+            type: "success"
+          });
+        });
+    } else {
+      this.$api.info
+        .create({ title: this.title, content: value, text })
+        .then((res: any) => {
+          this.$message({
+            showClose: true,
+            message: "OK",
+            type: "success"
+          });
+        });
+    }
+  }
+
+  getInfo(id: number) {
+    this.$api.info.get({ id }).then((res: any) => {
+      this.value = res.data.content;
+      this.title = res.data.title;
+    });
   }
 
   mounted() {
-    console.log(this.$route.query);
+    const query: any = this.$route.query;
+    if (Object.keys(query).length !== 0) this.getInfo(query.id);
   }
 }
 </script>

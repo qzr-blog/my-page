@@ -20,10 +20,10 @@ export default class Home extends Vue {
 
   mounted() {
     const id = this.$route.params
-    this.$api.info.getInfo({id: id.id}).then((res: any) => {
+    this.$api.info.get({id: id.id}).then((res: any) => {
       console.log(res)
       this.$nextTick(() => {
-        this.info = res.data[0].content;
+        this.info = res.data.content;
       });
     });
   }

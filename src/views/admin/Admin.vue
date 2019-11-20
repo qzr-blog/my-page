@@ -53,7 +53,7 @@ export default class Admin extends Vue {
   }
 
   editInfo(data: any) {
-    this.$router.push(`/edit/${data.id}`);
+    this.$router.push({path: `/admin/edit`, query: {id: data.id}});
   }
 
   getOverview() {
