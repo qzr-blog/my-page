@@ -48,21 +48,21 @@ export default {
         {
           alt: '邮箱',
           src: require('assets/svg/邮箱.svg'),
-          url: 'javascript;',
+          url: false,
           show: false,
           big: true
         },
         {
           alt: 'QQ',
           src: require('assets/svg/qq.svg'),
-          url: 'javascript;',
+          url: false,
           img: require('assets/img/qq.png'),
           show: false
         },
         {
           alt: '微信',
           src: require('assets/svg/微信.svg'),
-          url: 'javascript;',
+          url: false,
           img: require('assets/img/wx.png'),
           show: false
         },
@@ -73,11 +73,21 @@ export default {
           show: false,
           big: true
         },
+        {
+          alt: '登录',
+          src: require('assets/svg/qq.svg'),
+          url: false,
+          show: false,
+          big: true,
+          click: 'signIn'
+        }
       ]
     }
   },
   methods: {
-
+    test() {
+      console.log('test')
+    }
   }
 }
 </script>

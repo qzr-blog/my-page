@@ -12,7 +12,8 @@
                :key="item.alt"
                @mouseenter="showPop(index)"
                @mouseleave='hidePop(index)'>
-            <div class='pop-div'>
+            <div class='pop-div'
+                 @click="checkAlt(item.alt)">
               <a :href="item.url">
                 <img :src="item.src"
                      :alt="item.url"
@@ -43,6 +44,13 @@ export default {
     }
   },
   methods: {
+    checkAlt (alt) {
+      if (alt == '登录') this.signIn()
+    },
+    signIn () {
+      
+      console.log('登录')
+    },
     showPop (index) {
       this.contact[index].show = true
     },
