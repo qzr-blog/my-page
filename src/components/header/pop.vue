@@ -29,11 +29,16 @@
         </div>
       </el-collapse-transition>
     </div>
+    <login :dialongShow="dialongShow"></login>
   </div>
 </template>
 
 <script>
+import login from 'components/index/login'
 export default {
+  components: {
+    login
+  },
   props: [
     'contact',
     'myPhoto'
@@ -41,11 +46,13 @@ export default {
   data () {
     return {
       show: false,
+      dialongShow: false
     }
   },
   methods: {
     checkAlt (alt) {
       if (alt == '登录') this.signIn()
+      this.dialongShow = !this.dialongShow
     },
     signIn () {
       
