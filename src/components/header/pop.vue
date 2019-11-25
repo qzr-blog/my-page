@@ -29,7 +29,7 @@
         </div>
       </el-collapse-transition>
     </div>
-    <login :dialongShow="dialongShow"></login>
+    <login :dialongShow.sync="dialongShow"></login>
   </div>
 </template>
 
