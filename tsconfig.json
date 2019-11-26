@@ -45,7 +45,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/plugins/element.js", "src/store/modules/admin.js"
+    "src/plugins/element.js", "src/store/modules/user.js", "src/util/token.js"
   ], // ts 管理的文件
   "exclude": [
     "node_modules"
