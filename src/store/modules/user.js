@@ -1,6 +1,5 @@
 import api from 'api'
 import {getToken} from 'util/token'
-import { resolve } from '_any-promise@1.3.0@any-promise'
 
 export default {
   namespaced: true,
@@ -21,8 +20,8 @@ export default {
     }
   },
   actions: {
-    login({ commit }, data) {
-      const {name, password} = data
+    login({ commit }, userInfo) {
+      const {name, password} = userInfo
       return new Promise((resolve, reject) => {
         api.basic.login({
           name: name,
@@ -31,14 +30,25 @@ export default {
           const {data} = res
           commit('SET_TOKEN', data.token)
           setToken(data.token)
+          resolve()
         }).catch(err => {
           reject(err)
         })
       })
     },
 
-    getUser({commit}, data) {
-
+    getUser({commit, state}) {
+      return new Promise((resolve) => {
+        api.basic.getInfo({
+          token: state.token
+        }).then(res => {
+          const {data} = res
+          commit('SET_NAME', data.name)
+          resolve(data)
+        }).catch(err => {
+          reject(err)
+        })
+      })
     }
   }
 }

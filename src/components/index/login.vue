@@ -44,11 +44,9 @@ export default class Home extends Vue {
 
   check() {
     this.$emit('update:dialongShow', false)
-    this.$api.login({
+    this.$store.dispatch('user/login', {
       name: this.loginForm.name,
       password: this.loginForm.password
-    }).then((res: any) => {
-      res
     })
   }
 
