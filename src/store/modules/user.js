@@ -1,5 +1,5 @@
-import api from 'api'
-import {getToken} from 'util/token'
+import api from 'api/index'
+import {getToken, setToken} from 'util/token'
 
 export default {
   namespaced: true,
@@ -39,7 +39,7 @@ export default {
 
     getUser({commit, state}) {
       return new Promise((resolve) => {
-        api.basic.getInfo({
+        api.basic.getUserInfo({
           token: state.token
         }).then(res => {
           const {data} = res

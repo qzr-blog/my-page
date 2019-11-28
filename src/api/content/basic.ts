@@ -9,6 +9,9 @@ const basic: object = {
   },
   login(data: login) {
     return axios.post(base.login, data)
+  },
+  getUserInfo(data: getInfo) {
+    return axios.post(base.getUserInfo, data)
   }
 };
 
@@ -17,4 +20,8 @@ export default basic;
 interface login {
   name: string,
   password: string
+}
+
+interface getInfo {
+  token: string
 }

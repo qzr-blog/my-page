@@ -51,10 +51,10 @@ export default {
   },
   methods: {
     checkAlt (alt) {
-      if (alt == '登录') this.signIn()
+      if (alt == '登录') this.logIn()
       this.dialongShow = !this.dialongShow
     },
-    signIn () {
+    logIn () {
       
       console.log('登录')
     },

@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 import user from 'store/modules/user.js'
 
-// Vue.use(axios)
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
