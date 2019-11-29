@@ -1,6 +1,8 @@
 <template>
   <div class="page-container">
-    <div>
+    <el-button type=""
+               @click="signup">注册用户</el-button>
+    <div class="table-box">
       <el-table :data="tableData"
                 border
                 stripe>
@@ -29,6 +31,29 @@
         </el-table-column>
       </el-table>
     </div>
+    <div class="table-box">
+      <el-table :data="userData"
+                border
+                stripe>
+        <el-table-column fixed
+                         prop="name"
+                         label="用户名"
+                         width="150">
+        </el-table-column>
+        <el-table-column prop="password"
+                         label="密码"
+                         width="120">
+        </el-table-column>
+        <el-table-column label="操作"
+                         width="100">
+          <template slot-scope="scope">
+            <el-button type="text"
+                       size="small"
+                       @click="deleteInfo(scope.row)">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
@@ -41,6 +66,13 @@ export default class Admin extends Vue {
     {
       title: "",
       time: ""
+    }
+  ];
+
+  userData = [
+    {
+      name: "",
+      password: ""
     }
   ];
 
@@ -64,6 +96,16 @@ export default class Admin extends Vue {
     });
   }
 
+  getAllUser() {
+    this.$api.basic.getAllUser().then((res: any) => {
+      this.userData = res.data;
+    });
+  }
+
+  signup() {
+    this.$api.basic.signUp().then((res: any) => {});
+  }
+
   mounted() {
     this.getOverview();
   }
@@ -72,4 +114,6 @@ export default class Admin extends Vue {
 
 <style lang='stylus' scoped>
 @import '~common/stylus/index'
+.table-box
+  z-index 0
 </style>

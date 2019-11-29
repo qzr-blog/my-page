@@ -12,6 +12,9 @@ const basic: object = {
   },
   getUserInfo(data: getInfo) {
     return axios.post(base.getUserInfo, data)
+  },
+  getAllUser() {
+    return axios.get(base.getAllUser)
   }
 };
 

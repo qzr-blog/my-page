@@ -1,4 +1,4 @@
-<template>
+<template class="login-box">
   <el-dialog title="登录"
              :modal-append-to-body="false"
              :visible="dialongShow">
@@ -43,17 +43,20 @@ export default class Home extends Vue {
   };
 
   check() {
-    this.$emit('update:dialongShow', false)
-    this.$store.dispatch('user/login', {
+    this.$emit("update:dialongShow", false);
+    this.$store.dispatch("user/login", {
       name: this.loginForm.name,
       password: this.loginForm.password
-    })
+    });
   }
 
   cancel() {
-    this.$emit('update:dialongShow', false)
+    this.$emit("update:dialongShow", false);
   }
 }
 </script>
 
-<style lang='stylus' scoped></style>
+<style lang='stylus' scoped>
+.login-box
+  z-index 10
+</style>
