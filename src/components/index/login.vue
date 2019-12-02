@@ -1,7 +1,7 @@
 <template class="login-box">
   <el-dialog title="登录"
              :modal-append-to-body="false"
-             :visible="dialongShow">
+             :visible="signShow">
 
     <el-form :model="loginForm"
              label-width="100px">
@@ -25,7 +25,9 @@
           class="dialog-footer">
       <el-button @click="cancel">取 消</el-button>
       <el-button type="primary"
-                 @click="check">确 定</el-button>
+                 @click="check">注 册</el-button>
+      <el-button type="primary"
+                 @click="check">登 录</el-button>
     </span>
   </el-dialog>
 </template>
@@ -35,15 +37,16 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class Home extends Vue {
-  @Prop() dialongShow: boolean = false;
-
   loginForm: any = {
     name: "",
     password: ""
   };
 
+  get signShow() {
+    return this.$store.getters['page/getSignShow']
+  }
+
   check() {
-    this.$emit("update:dialongShow", false);
     this.$store.dispatch("user/login", {
       name: this.loginForm.name,
       password: this.loginForm.password
@@ -51,7 +54,7 @@ export default class Home extends Vue {
   }
 
   cancel() {
-    this.$emit("update:dialongShow", false);
+    this.$store.commit('page/SET_SIGNSHOW', false)
   }
 }
 </script>

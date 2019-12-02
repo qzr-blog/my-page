@@ -29,7 +29,7 @@
         </div>
       </el-collapse-transition>
     </div>
-    <login :dialongShow.sync="dialongShow"></login>
+    <login></login>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
   methods: {
     checkAlt (alt) {
       if (alt == '登录') this.logIn()
-      this.dialongShow = !this.dialongShow
+      this.$store.commit('page/SET_SIGNSHOW', true)
     },
     logIn () {
       
