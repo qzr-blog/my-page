@@ -3,7 +3,8 @@ const apis: any = {
   info: '/info', //获取文章信息
   login: '/login',  //获取token
   getUserInfo: '/getUserInfo', //获取用户信息
-  getAllUser: '/getAllUser'
+  getAllUser: '/getAllUser',
+  signUp: '/signUp'
 }
 
 export default apis

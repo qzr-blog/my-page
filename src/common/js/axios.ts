@@ -4,6 +4,7 @@ import axios from 'axios'
 // import router from "vue-router";
 import global from './global'
 import { Message, Loading } from 'element-ui'
+import { getToken } from 'util/token'
 
 let loader: any
 const Axios = axios.create({
@@ -31,8 +32,10 @@ Axios.interceptors.request.use(
     // 若是需要跨站点,存放到 cookie 会好一点,限制也没那么多,有些浏览环境限制了 localstorage 的使用
     // 这里localStorage一般是请求成功后我们自行写入到本地的,因为你放在vuex刷新就没了
     // 一些必要的数据写入本地,优先从本地读取
-    if (localStorage.token) {
-      config.headers.Authorization = localStorage.token
+    const TOKEN = getToken
+    if (TOKEN) {
+      // config.headers.Authorization = TOKEN
+      config.headers.Authorization = 'adfasdfasdfasdfd'
     }
     return config
   },

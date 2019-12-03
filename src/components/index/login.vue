@@ -25,7 +25,7 @@
           class="dialog-footer">
       <el-button @click="cancel">取 消</el-button>
       <el-button type="primary"
-                 @click="check">注 册</el-button>
+                 @click="signup">注 册</el-button>
       <el-button type="primary"
                  @click="check">登 录</el-button>
     </span>
@@ -51,6 +51,15 @@ export default class Home extends Vue {
       name: this.loginForm.name,
       password: this.loginForm.password
     });
+  }
+
+  signup() {
+    this.$api.signUp({
+      name: this.loginForm.name,
+      password: this.loginForm.password
+    }).then((res: any) => {
+      console.log(res)
+    })
   }
 
   cancel() {

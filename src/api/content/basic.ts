@@ -7,7 +7,7 @@ const basic: object = {
   getOverview() {
     return axios.get(`${overview}`);
   },
-  login(data: login) {
+  login(data: user) {
     return axios.post(base.login, data)
   },
   getUserInfo(data: getInfo) {
@@ -15,14 +15,18 @@ const basic: object = {
   },
   getAllUser() {
     return axios.get(base.getAllUser)
+  },
+  signUp(data: user) {
+    return axios.post(base.signUp, data)
   }
 };
 
 export default basic;
 
-interface login {
+interface user {
   name: string,
-  password: string
+  password: string,
+  code?: string | number
 }
 
 interface getInfo {
