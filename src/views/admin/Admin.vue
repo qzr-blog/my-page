@@ -113,6 +113,7 @@ export default class Admin extends Vue {
   }
 
   mounted() {
+    this.getAllUser()
     this.getOverview();
   }
 }

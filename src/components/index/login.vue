@@ -54,7 +54,7 @@ export default class Home extends Vue {
   }
 
   signup() {
-    this.$api.signUp({
+    this.$api.basic.signUp({
       name: this.loginForm.name,
       password: this.loginForm.password
     }).then((res: any) => {
