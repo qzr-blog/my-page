@@ -18,6 +18,9 @@ const basic: object = {
   },
   signUp(data: user) {
     return axios.post(base.signUp, data)
+  },
+  delUser(data: any) {
+    return axios.post(base.delUser, data)
   }
 };
 

@@ -1,6 +1,7 @@
-<template class="login-box">
+// <template>
   <el-dialog title="登录"
              :modal-append-to-body="false"
+             :show-close="false"
              :visible="signShow">
 
     <el-form :model="loginForm"
@@ -43,7 +44,7 @@ export default class Home extends Vue {
   };
 
   get signShow() {
-    return this.$store.getters['page/getSignShow']
+    return this.$store.getters["page/getSignShow"];
   }
 
   check() {
@@ -54,16 +55,14 @@ export default class Home extends Vue {
   }
 
   signup() {
-    this.$api.basic.signUp({
+    this.$store.dispatch("user/signUp", {
       name: this.loginForm.name,
       password: this.loginForm.password
-    }).then((res: any) => {
-      console.log(res)
-    })
+    });
   }
 
   cancel() {
-    this.$store.commit('page/SET_SIGNSHOW', false)
+    this.$store.commit("page/SET_SIGNSHOW", false);
   }
 }
 </script>

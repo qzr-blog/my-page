@@ -1,6 +1,6 @@
 <template>
-  <div class="content">
-    <div>
+  <div>
+    <div class="content">
       <img :src="myPhoto"
            class='my-photo hvr-bounce-in'
            @click='changePop'>
@@ -55,7 +55,7 @@ export default {
       this.$store.commit('page/SET_SIGNSHOW', true)
     },
     logIn () {
-      
+
       console.log('登录')
     },
     showPop (index) {
@@ -75,6 +75,7 @@ export default {
 .content
   position fixed
   right 0
+  top 5px
 
 .container
   position absolute

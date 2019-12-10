@@ -1,9 +1,6 @@
 <template>
   <div class="page-container">
     <div>
-      <el-button type=""
-                 @click="signup">注册用户</el-button>
-
       <div class="table-container">
         <div class="table-box">
           <el-table :data="tableData"
@@ -52,7 +49,8 @@
               <template slot-scope="scope">
                 <el-button type="text"
                            size="small"
-                           @click="deleteInfo(scope.row)">删除</el-button>
+                            v-if="scope.row.name !== 'const'"
+                           @click="delUser(scope.row)">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -108,8 +106,11 @@ export default class Admin extends Vue {
     });
   }
 
-  signup() {
-    this.$api.basic.signUp().then((res: any) => {});
+  delUser(data: any) {
+    console.log(data)
+    this.$api.basic.delUser({id: data._id}).then((res: any) => {
+      this.getAllUser()
+    })
   }
 
   mounted() {

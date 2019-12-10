@@ -4,7 +4,8 @@ const apis: any = {
   login: '/login',  //获取token
   getUserInfo: '/getUserInfo', //获取用户信息
   getAllUser: '/getAllUser',
-  signUp: '/signUp'
+  signUp: '/signUp',
+  delUser: '/delUser'
 }
 
 export default apis

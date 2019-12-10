@@ -75,7 +75,7 @@ export default {
         },
         {
           alt: '登录',
-          src: require('assets/svg/qq.svg'),
+          src: require('assets/svg/登录.svg'),
           url: false,
           show: false,
           big: true,
