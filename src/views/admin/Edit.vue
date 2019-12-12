@@ -9,13 +9,17 @@
       </el-input>
     </span>
     <mavon-editor v-model="value"
-                  @save="saveMark" />
+                  @save="saveMark"
+                  ref="md"
+                  @imgAdd="imgAdd" />
   </div>
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from "vue-property-decorator";
 import { delHtmlTag } from "@/common/js/tool";
+import axios from 'axios'
+import api from 'api/base'
 
 @Component
 export default class Edit extends Vue {
@@ -55,6 +59,23 @@ export default class Edit extends Vue {
       this.value = res.data.content;
       this.title = res.data.title;
     });
+  }
+
+  imgAdd(pos:any, $file:any) {
+    console.log(pos)
+    console.log($file)
+    console.log(this.$refs.md)
+    const file = new FormData()
+    file.append('image', $file)
+    console.log(file)
+    this.$axios({
+      method: 'post',
+      url: api.uploadImg,
+      headers: { 'Content-Type': 'multipart/form-data' },
+      data: file
+    }).then((res: any) => {
+      console.log(res)
+    })
   }
 
   mounted() {
