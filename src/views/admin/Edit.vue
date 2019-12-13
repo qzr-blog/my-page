@@ -18,8 +18,8 @@
 <script lang='ts'>
 import { Component, Vue } from "vue-property-decorator";
 import { delHtmlTag } from "@/common/js/tool";
-import axios from 'axios'
-import api from 'api/base'
+import axios from "axios";
+import api from "api/base";
 
 @Component
 export default class Edit extends Vue {
@@ -33,7 +33,7 @@ export default class Edit extends Vue {
 
     if (Object.keys(query).length !== 0) {
       this.$api.info
-        .update({id: query.id, title: this.title, content: value, text })
+        .update({ id: query.id, title: this.title, content: value, text })
         .then((res: any) => {
           this.$message({
             showClose: true,
@@ -61,21 +61,19 @@ export default class Edit extends Vue {
     });
   }
 
-  imgAdd(pos:any, $file:any) {
-    console.log(pos)
-    console.log($file)
-    console.log(this.$refs.md)
-    const file = new FormData()
-    file.append('image', $file)
-    console.log(file)
+  imgAdd(pos: any, $file: any) {
+    const file = new FormData();
+    file.append("image", $file);
     this.$axios({
-      method: 'post',
+      method: "post",
       url: api.uploadImg,
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: { "Content-Type": "multipart/form-data" },
       data: file
     }).then((res: any) => {
-      console.log(res)
-    })
+      const url = res.data;
+      const md = this.$refs.md as any
+      md.$img2Url(pos, url);
+    });
   }
 
   mounted() {
