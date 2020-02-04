@@ -2,17 +2,15 @@
   <div class="page-container">
     <div class="content">
       <div class="content-box">
-        <h3>关于我</h3>
-        <h3>96年 / 本科 / 武汉 / 在职</h3>
+        <h2>关于我</h2>
+        <h3>96年 / 本科 / 武汉</h3>
         <h4>工作 2017.3 - now</h4>
         <p>
-          17年自学入行，比较惭愧，没什么拿的出手的成绩。前端这几年日新月异，从入行时JQuery的如日中天，
-          到现在mvvm框架三足鼎立，让每一个前端开发都充满了技术危机。不过既是机遇也是挑战吧，
-          只希望自己，沉迷学习无法自拔。
+          可以通过邮件与我联系：z5021996@vip.qq.com
         </p>
       </div>
       <div class="content-box">
-        <h3>关于网站</h3>
+        <h2>关于网站</h2>
         <p>这里有：</p>
         <ul>
           <li>我的技术心得</li>
@@ -21,7 +19,7 @@
         </ul>
       </div>
       <div class="content-box">
-        <h3>技能</h3>
+        <h2>技能</h2>
         <ul>
           <li>熟练使用html、css、js、TS</li>
           <li>熟练使用jq、bootstrap进行响应式开发</li>
@@ -32,7 +30,7 @@
         </ul>
       </div>
       <div class="content-box">
-        <h3>经历</h3>
+        <h2>经历</h2>
         <div class="exp-box">
           <h4>2018.3 - now 常州维德杰瑞 前端开发</h4>
           <p>负责研发团队前端技术选型和建设。参与公司安防综合管理平台、微信公众号的建设</p>
@@ -52,17 +50,17 @@
   padding 0 20%
   line-height 30px
 
-.content h3
-  font-size 18px
+.content h2
+  font-size 25px
   font-weight 800
-  margin 5px 0
+  margin 25px 0
 
 .content h4
   font-size 18px
   margin 5px 0
 
 .content-box
-  margin 10px 0
+  margin 20px 0
 
 .exp-box
   margin 10px 0

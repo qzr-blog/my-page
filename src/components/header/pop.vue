@@ -40,13 +40,56 @@ export default {
     login
   },
   props: [
-    'contact',
     'myPhoto'
   ],
   data () {
     return {
       show: false,
-      dialongShow: false
+      dialongShow: false,
+      contact: [
+        {
+          alt: 'github',
+          src: require('assets/svg/github.svg'),
+          url: "https://github.com/HoldSworder",
+          show: false
+        },
+        {
+          alt: '邮箱',
+          src: require('assets/svg/邮箱.svg'),
+          url: false,
+          show: false,
+          big: true
+        },
+        {
+          alt: 'QQ',
+          src: require('assets/svg/qq.svg'),
+          url: false,
+          img: require('assets/img/qq.png'),
+          show: false
+        },
+        {
+          alt: '微信',
+          src: require('assets/svg/微信.svg'),
+          url: false,
+          img: require('assets/img/wx.png'),
+          show: false
+        },
+        {
+          alt: '微博',
+          src: require('assets/svg/微博.svg'),
+          url: 'http://www.weibo.com/5490397983/profile?topnav=1&wvr=6',
+          show: false,
+          big: true
+        },
+        {
+          alt: '登录',
+          src: require('assets/svg/登录.svg'),
+          url: false,
+          show: false,
+          big: true,
+          click: 'signIn'
+        }
+      ]
     }
   },
   methods: {
@@ -55,7 +98,6 @@ export default {
       this.$store.commit('page/SET_SIGNSHOW', true)
     },
     logIn () {
-
       console.log('登录')
     },
     showPop (index) {

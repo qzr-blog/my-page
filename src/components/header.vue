@@ -7,8 +7,7 @@
             :key="item.text">{{ item.text }}</li>
       </ul> -->
       <nav-menu></nav-menu>
-      <pop :contact='contact'
-           :myPhoto='myPhoto'>
+      <pop :myPhoto='myPhoto'>
         <music :imgSrc='imgSrc'
                :audioSrc='audioSrc'
                :music='false'></music>
@@ -19,9 +18,9 @@
 </template>
 
 <script>
-import pop from "./header/pop.vue"
-import music from './header/music.vue'
-import navMenu from './header/navMenu.vue'
+import pop from "components/header/pop.vue"
+import music from 'components/header/music.vue'
+import navMenu from 'components/header/navMenu.vue'
 
 
 export default {
@@ -32,56 +31,11 @@ export default {
   },
   data () {
     return {
-
       imgSrc: require('assets/svg/音乐.svg'),
       audioSrc: [
         require('assets/audio/猪叫.mp3')
       ],
       myPhoto: require('assets/img/portrait.jpg'),
-      contact: [
-        {
-          alt: 'github',
-          src: require('assets/svg/github.svg'),
-          url: "https://github.com/HoldSworder",
-          show: false
-        },
-        {
-          alt: '邮箱',
-          src: require('assets/svg/邮箱.svg'),
-          url: false,
-          show: false,
-          big: true
-        },
-        {
-          alt: 'QQ',
-          src: require('assets/svg/qq.svg'),
-          url: false,
-          img: require('assets/img/qq.png'),
-          show: false
-        },
-        {
-          alt: '微信',
-          src: require('assets/svg/微信.svg'),
-          url: false,
-          img: require('assets/img/wx.png'),
-          show: false
-        },
-        {
-          alt: '微博',
-          src: require('assets/svg/微博.svg'),
-          url: 'http://www.weibo.com/5490397983/profile?topnav=1&wvr=6',
-          show: false,
-          big: true
-        },
-        {
-          alt: '登录',
-          src: require('assets/svg/登录.svg'),
-          url: false,
-          show: false,
-          big: true,
-          click: 'signIn'
-        }
-      ]
     }
   },
   methods: {

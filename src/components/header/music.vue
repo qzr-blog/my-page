@@ -3,10 +3,10 @@
     <img :src="imgSrc"
          class='music-look'
          @click='changeMusic'
-         :class='{ musicActive: !music }'
+         :class='{ musicActive: !singing }'
          id='music-img'>
     <audio id='audio'
-           :autoplay='music'
+           :autoplay='singing'
            @ended='setIndex'
            :src='audioSrc[index]'>
     </audio>
@@ -22,7 +22,8 @@ export default {
   ],
   data () {
     return {
-      index: 0
+      index: 0,
+      singing: this.music
     }
   },
   methods: {
@@ -30,13 +31,13 @@ export default {
       let audio = document.querySelector('#audio')
       let img = document.querySelector('#music-img')
 
-      if (this.music) {
+      if (this.singing) {
         audio.pause()
-        this.music = false
+        this.singing = false
         img.style.animationPlayState = 'paused'
       } else {
         audio.play()
-        this.music = true
+        this.singing = true
         img.style.animationPlayState = 'running'
       }
     },

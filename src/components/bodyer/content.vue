@@ -11,9 +11,9 @@
         </div>
         <p class="content">{{cData.text}}</p>
       </div>
-      <!-- <div class="img-box">
+      <div class="img-box">
         <img :src="cData.img">
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -49,13 +49,14 @@ title-font = 22px
 
 .img-box
   height 100%
-  width 100%
+  width 50%
   display flex
-  justify-content center
+  justify-content flex-end
   align-items center
 
 .img-box img
   height 100%
+  width 100%
   transition all 0.6s
 
 .img-box img:hover
@@ -75,7 +76,7 @@ title-font = 22px
   border-radius 4px
   overflow hidden
   height 25vh
-  justify-content left
+  justify-content space-between
   align-items center
 
 .box-card:hover
@@ -85,7 +86,7 @@ title-font = 22px
   transform scale(1.1)
 
 .box-even
-  // flex-direction row-reverse
+  flex-direction row-reverse
 
 .content-box
   padding 1.5rem

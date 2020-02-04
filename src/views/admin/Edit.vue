@@ -2,7 +2,7 @@
   <div class="page-container">
     <span>
       <el-input type="text"
-                placeholder="请输入内容"
+                placeholder="请输入标题"
                 v-model="title"
                 maxlength="10"
                 show-word-limit>
@@ -17,7 +17,7 @@
 
 <script lang='ts'>
 import { Component, Vue } from "vue-property-decorator";
-import { delHtmlTag } from "@/common/js/tool";
+import Tool from "@/common/js/tool";
 import axios from "axios";
 import api from "api/base";
 
@@ -28,7 +28,7 @@ export default class Edit extends Vue {
   title: string = "";
 
   saveMark(value: string, render: string) {
-    const text = delHtmlTag(render);
+    const text = Tool.delHtmlTag(render);
     const query: any = this.$route.query;
 
     if (Object.keys(query).length !== 0) {

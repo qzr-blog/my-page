@@ -6,7 +6,8 @@ const apis: any = {
   getAllUser: '/getAllUser',
   signUp: '/signUp',
   delUser: '/delUser',
-  uploadImg: '/info/uploadImg'
+  uploadImg: '/info/uploadImg',
+  archives: '/archives'
 }
 
 export default apis
