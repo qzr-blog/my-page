@@ -29,7 +29,7 @@ export default {
         login({ commit }, userInfo) {
             const { name, password } = userInfo
             return new Promise((resolve, reject) => {
-                api.basic.login({
+                api.user.login({
                     name: name,
                     password: password
                 }).then(res => {
@@ -55,7 +55,7 @@ export default {
 
         getUser({ commit, state }) {
             return new Promise((resolve, reject) => {
-                api.basic.getUserInfo({
+                api.user.getUserInfo({
                     token: state.token
                 }).then(res => {
                     const { data } = res
@@ -70,7 +70,7 @@ export default {
         signUp({ dispatch }, userInfo) {
             const { name, password } = userInfo
             return new Promise((resolve, reject) => {
-                api.basic.signUp({ name, password }).then(res => {
+                api.user.signUp({ name, password }).then(res => {
                     const { data } = res
                     Message({
                         type: 'success',

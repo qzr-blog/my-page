@@ -101,14 +101,14 @@ export default class Admin extends Vue {
   }
 
   getAllUser() {
-    this.$api.basic.getAllUser().then((res: any) => {
+    this.$api.user.getAllUser().then((res: any) => {
       this.userData = res.data;
     });
   }
 
   delUser(data: any) {
     console.log(data)
-    this.$api.basic.delUser({id: data._id}).then((res: any) => {
+    this.$api.user.delUser({id: data._id}).then((res: any) => {
       this.getAllUser()
     })
   }
