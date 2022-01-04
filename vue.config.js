@@ -1,3 +1,12 @@
+/**
+ * @Date         : 2021-12-28 17:22:16
+ * @Description  : 
+ * @Autor        : Qzr(z5021996@vip.qq.com)
+ * @LastEditors  : Qzr(z5021996@vip.qq.com)
+ * @LastEditTime : 2021-12-30 17:56:54
+ */
+
+
 // vue.config.js
 const path = require('path')
 
@@ -90,10 +99,10 @@ module.exports = {
     proxy: {
       '/api': {
         // target: 'https://www.easy-mock.com/mock/5cf0df0484d6c23172d0bc30/blog',
-        target: 'http://127.0.0.1:7001',
-        // pathRewrite: {
-        //   '^/api': ''
-        // },
+        target: 'http://127.0.0.1:7002',
+        pathRewrite: {
+          '^/api': '/api'
+        },
         changOrigin: true,
       }
     }

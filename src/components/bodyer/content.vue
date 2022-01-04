@@ -1,3 +1,12 @@
+<!--
+ * @Date         : 2021-12-28 17:22:16
+ * @Description  : 
+ * @Autor        : Qzr(z5021996@vip.qq.com)
+ * @LastEditors  : Qzr(z5021996@vip.qq.com)
+ * @LastEditTime : 2022-01-04 15:33:08
+-->
+
+
 <template>
   <div class="container"
        @click="show">
@@ -12,7 +21,7 @@
         <p class="content">{{cData.text}}</p>
       </div>
       <div class="img-box">
-        <img :src="cData.img">
+        <img :src="cData.img || require('@/assets/mask.jpg')">
       </div>
     </div>
   </div>
@@ -27,6 +36,7 @@ interface contentObj {
   img: string;
   id: number;
   time: string;
+  text: string;
 }
 
 @Component
@@ -35,8 +45,6 @@ export default class Content extends Vue {
   cData!: contentObj;
   @Prop()
   index!: number;
-
-  
 
   show() {
     this.$router.push({ path: `/show/${this.cData.id}`});

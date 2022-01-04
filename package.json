@@ -7,7 +7,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "db": "mongod --dbpath C:data/db"
+    "db": "mongod --dbpath C:data/db",
+    "release:image": "docker build -t constq/page-blog:front-v0 .",
+    "release:push": "docker push constq/page-blog:front-v0",
+    "release": "yarn release:image && yarn release:push"
   },
   "dependencies": {
     "axios": "^0.18.0",
